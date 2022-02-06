@@ -1,0 +1,13 @@
+response = Map();
+response.put("text","Isn't the instant button super fantabulous? 😲\nFunctions work with buttons. There are two types of buttons - Message Card Buttons and Instant Buttons.");
+info message.get("text");
+messageDetails = message.get("text").trim();
+messageLength = messageDetails.length();
+lastIndexOfSlash = messageDetails.lastIndexOf("/");
+info arguments;
+dbId = arguments.get("key");
+info "Arguments DBID::" + dbId;
+inputs = list();
+inputs.add({"type":"textarea","name":"reason","label":"Reason for Rejection","hint":"","placeholder":"","mandatory":true,"value":""});
+inputs.add({"type":"hidden","name":"dbId","value":dbId});
+return {"type":"form","title":"Reason for Reason","hint":"Upon submission the reason for rejection for rejection will be sent to the requester","name":"ID","version":1,"button_label":"Submit","action":{"type":"invoke.function","name":"handleAccessRequestRejection"},"inputs":inputs};
